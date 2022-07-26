@@ -1,28 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- include header -->
+<%- include('include/_header') %>
+    <!-- /include header -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="/">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <title>User Management System</title>
-</head>
-
-<body>
-    <header id="header">
-        <nav>
-            <div class="container">
-                <div class="text-center">
-                    <a href="/" class="nav-brand text-dark">User Management System</a>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <!-- main -->
     <main id="site-main">
         <div class="container">
             <div class="box-nav d-flex justify-between">
@@ -31,8 +10,8 @@
                 </div>
             </div>
             <div class="form-title text-center">
-                <h2 class='text-dark'>New User</h2>
-                <span class="text-light">Fill the form to create a new user</span>
+                <h2 class='text-dark'>Update User</h2>
+                <span class="text-light">Fill the form to update an account</span>
             </div>
             <!-- form -->
             <form method="post" id="update_user">
@@ -79,7 +58,6 @@
             <!-- /form -->
         </div>
     </main>
-    <!-- /main -->
-</body>
-
-</html>
+    <!-- include footer  -->
+    <%- include('include/_footer') %>
+        <!-- /include footer -->

@@ -244,7 +244,7 @@ table {
 }
 
 #update_user .form-group .btn,
-#add_user.form-group .btn{
+#add_user .form-group .btn{
     width: 100%;
     padding: 0.9em 1em;
     background-color: #16db93;
@@ -255,10 +255,13 @@ table {
     cursor: pointer;
 }
 
+
 #update_user .form-group .btn:hover,
-#add_user.form-group .btn:hover{
+#add_user .form-group .btn:hover{
     background-color: var(--dark);
     color: var(--border);
     border-radius: 1em;
     transition-duration: 1000ms;
 }
+
+
