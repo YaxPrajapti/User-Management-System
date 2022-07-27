@@ -21,7 +21,8 @@ exports.create = (req, res) => {
         user
             .save(user)
             .then(data => {
-                res.send(data);
+                // res.send(data);
+                res.redirect('http://localhost:8080')
             }).catch(err => {
                 res.status(500).send({ message: err.message || "An error occured while performing the create operation." })
             })
@@ -31,12 +32,28 @@ exports.create = (req, res) => {
  * @description retrieve and return all users OR retrieve and return single user.
  */
 exports.find = (req, res) => {
-    userdb.find()
-        .then(user => {
-            res.send(user)
-        }).catch(err => {
-            res.status(500).send({ message: err.message || "An error occured while retrieving the user information. 😑" })
-        })
+
+    if (req.query.id) {
+        const id = req.query.id;
+        userdb.findById(id)
+            .then(data => {
+                if (!data) {
+                    res.status(404).send({ message: `Details not found with id ${id}` })
+                }
+                else {
+                    res.send(data);
+                }
+            }).catch(err => {
+                res.status(500).send({ message: `An error occured while retrieving user information.` })
+            })
+    } else {
+        userdb.find()
+            .then(user => {
+                res.send(user)
+            }).catch(err => {
+                res.status(500).send({ message: err.message || "An error occured while retrieving the user information. 😑" })
+            })
+    }
 }
 
 /**
@@ -55,7 +72,7 @@ exports.update = async (req, res) => {
             await user.updateOne(update);
             const updatedUser = await userdb.findOne({ _id: id });
             console.log(updatedUser);
-            res.send(updatedUser);
+            
         }
     } catch (error) {
         res.status(500).send({ message: "An error occured while updating user." });
@@ -70,7 +87,7 @@ exports.delete = async (req, res) => {
     try {
         const id = req.params.id;
         // await userdb.deleteOne({ _id: id });
-        const user = await userdb.findOne({_id: id});
+        const user = await userdb.findOne({ _id: id });
         await user.deleteOne(user);
         res.send(`User details are deleted`);
     } catch (error) {

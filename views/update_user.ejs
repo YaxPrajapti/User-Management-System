@@ -18,36 +18,41 @@
                 <div class="new_user">
                     <div class="form-group">
                         <label for="name" class="radio-label">Name</label>
-                        <input type="hidden" name="id" value="">
-                        <input type="text" name="name" value="" placeholder="Yax Prajapati">
+                        <input type="hidden" name="id" value="<%= user._id %> ">
+                        <input type="text" name="name" value="<%= user.name %>" placeholder="Yax Prajapati">
                     </div>
                     <div class="form-group">
                         <label for="Email" class="radio-label">Email</label>
-                        <input type="email" name="email" value="" placeholder="example@gmail.com">
+                        <input type="email" name="email" value="<%= user.email %>" placeholder="example@gmail.com">
                     </div>
                     <div class="form-group">
                         <label for="gender" class="radio-label">Gender</label>
                         <div class="radio inline">
-                            <input type="radio" id="radio-2" name="gender" value="Male">
+                            <input type="radio" id="radio-2" name="gender" value="Male" <%=user.gender=='Male'
+                                ? 'checked' : '' %> >
                             <label for="radio-2" class="radio-label">Male</label>
                         </div>
                         <div class="radio inline">
-                            <input type="radio" id="radio-3" name="gender" value="Female">
+                            <input type="radio" id="radio-3" name="gender" value="Female" <%=user.gender=='Female'
+                                ? 'checked' : '' %>>
                             <label for="radio-3" class="radio-label">Female</label>
                         </div>
                         <div class="radio inline">
-                            <input type="radio" id="radio-4" name="gender" value="other">
+                            <input type="radio" id="radio-4" name="gender" value="other" <%=user.gender=='other'
+                                ? 'checked' : '' %>>
                             <label for="radio-4" class="radio-label">other</label>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="gender" class="radio-label">Status</label>
                         <div class="radio inline">
-                            <input type="radio" id="radio-5" name="status" value="Active">
+                            <input type="radio" id="radio-5" name="status" value="Active" <%=user.status=='Active'
+                                ? 'checked' : '' %> >
                             <label for="radio-5" class="radio-label">Active</label>
                         </div>
                         <div class="radio inline">
-                            <input type="radio" id="radio-6" name="status" value="Inactive">
+                            <input type="radio" id="radio-6" name="status" value="Inactive" <%=user.status=='Inactive'
+                                ? 'checked' : '' %>>
                             <label for="radio-6" class="radio-label">Inactive</label>
                         </div>
                     </div>
